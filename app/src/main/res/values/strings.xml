@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AxReg-droid</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="forgot_my_password">Esqueci minha senha</string>
+    <string name="btn_login">Entrar</string>
+    <string name="create_account">CRIAR CONTA</string>
+    <string name="password_recovery">Recuperação de senha</string>
+    <string name="recovery_txt_report">Informe seu endereço de email e enviaremos para você \n instruções de como redefinir sua senha</string>
+    <string name="send_email">ENVIAR EMAIL</string>
+    <string name="logoAnestech">Logo Anestech</string>
 </resources>
