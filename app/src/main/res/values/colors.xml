@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="darkGreyBlue">#394463</color>
     <color name="fundo_edit">#e0e6ea</color>
+    <color name="transparent">#0000FFFF</color>
 </resources>

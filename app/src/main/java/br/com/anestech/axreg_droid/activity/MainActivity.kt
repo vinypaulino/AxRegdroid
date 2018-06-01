@@ -4,6 +4,7 @@ import android.os.Bundle
 import br.com.anestech.axreg_droid.R
 import br.com.anestech.axreg_droid.extensions.addFragment
 import br.com.anestech.axreg_droid.fragments.LoginFragment
+import br.com.anestech.axreg_droid.fragments.RecoverPasswordFragment
 
 class MainActivity : BaseActivity() {
 
@@ -11,6 +12,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        addFragment(R.id.content, LoginFragment())
+        addFragment(R.id.content, RecoverPasswordFragment())
     }
 }
