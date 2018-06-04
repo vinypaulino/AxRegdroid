@@ -13,4 +13,5 @@
     <string name="recovery_txt_report">Informe seu endereço de email e enviaremos para você \n instruções de como redefinir sua senha</string>
     <string name="send_email">ENVIAR EMAIL</string>
     <string name="logoAnestech">Logo Anestech</string>
+    <string name="action_news">News</string>
 </resources>

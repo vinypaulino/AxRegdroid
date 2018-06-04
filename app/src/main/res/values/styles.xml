@@ -26,8 +26,8 @@
     <style name="StyledTilEditText">
         <item name="android:theme">@style/StyledTilEditTextTheme</item>
 
-        <item name="android:paddingLeft">8dp</item>
-        <item name="android:layout_height">70dp</item>
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:layout_height">60dp</item>
         <!--<item name="android:textColorHint"></item> // Cor texto(hint) sem foco-->
     </style>
 
@@ -35,4 +35,8 @@
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

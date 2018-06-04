@@ -10,16 +10,13 @@
 
     <ImageView
         android:id="@+id/imgLogoAxReg_login"
-        android:layout_width="183dp"
-        android:layout_height="161dp"
+        android:layout_width="206dp"
+        android:layout_height="205dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="103dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logosmallimg" />
@@ -31,12 +28,13 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="100dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="63dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogoAxReg_login"
-        app:layout_constraintVertical_bias="0.16000003">
+        app:layout_constraintVertical_bias="0.0">
 
         <!--<include layout="@layout/fragment_login" />-->
 
@@ -44,12 +42,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_width="151dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="34dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@string/logoAnestech"
         app:layout_constraintBottom_toBottomOf="parent"

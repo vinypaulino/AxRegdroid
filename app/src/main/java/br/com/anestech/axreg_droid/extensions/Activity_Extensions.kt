@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import br.com.anestech.axreg_droid.R
 
 /**
  * Created by Vinícius on 27/04/18.
@@ -44,6 +45,16 @@ fun AppCompatActivity.addFragment(@IdRes layoutId: Int, fragment: Fragment) {
     fragment.arguments = intent.extras
     val ft = supportFragmentManager.beginTransaction()
     ft.add(layoutId, fragment)
+    ft.commit()
+}
+
+//Substitui Fragment no Layout
+
+fun AppCompatActivity.replaceFragment(@IdRes layoutId: Int, fragment: Fragment){
+    val ft = supportFragmentManager.beginTransaction()
+    ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+    ft.replace(layoutId, fragment)
+    ft.addToBackStack(null)
     ft.commit()
 }
 
