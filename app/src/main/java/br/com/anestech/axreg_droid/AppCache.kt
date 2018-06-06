@@ -25,7 +25,7 @@ class AppCache : Application() {
         Realm.init(this)
 
         val config = RealmConfiguration.Builder()
-                .initialData(DbInitialData())
+              //  .initialData(DbInitialData())
                 .name("axreg.realm")
                 .build()
 

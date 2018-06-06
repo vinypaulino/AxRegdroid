@@ -42,17 +42,17 @@ class AxServerApi {
             return response
         }
 
-        fun newRegistration(context:Context?, user:User): RegistrationResponse? {
-            val response = Ion.with(context)
-                    .load("POST", AppConstants.URL_NEW_REGISTRATION)
-                    .addHeader("app_token", AppConstants.APP_TOKEN)
-                    .setBodyParameter("name", user.name)
-                    .setBodyParameter("email", user.email)
-                    .setBodyParameter("udid", user.uuid)
-                    .`as`(TypeToken.get(RegistrationResponse::class.java))
-                    .get()
-            return response
-        }
+//        fun newRegistration(context:Context?, user:User): RegistrationResponse? {
+//            val response = Ion.with(context)
+//                    .load("POST", AppConstants.URL_NEW_REGISTRATION)
+//                    .addHeader("app_token", AppConstants.APP_TOKEN)
+//                    .setBodyParameter("name", user.name)
+//                    .setBodyParameter("email", user.email)
+//                    .setBodyParameter("udid", user.uuid)
+//                    .`as`(TypeToken.get(RegistrationResponse::class.java))
+//                    .get()
+//            return response
+//        }
 
         fun getTermosDeUso(context:Context?): TermsResponse? {
             val response = Ion.with(context)

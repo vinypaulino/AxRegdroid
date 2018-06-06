@@ -1,7 +1,7 @@
 package br.com.anestech.axcalc
 
 /**
- * Created by felipe on 22/08/17.
+ * Created by VinyPaulino
  */
 class AppConstants {
     companion object {
@@ -16,6 +16,15 @@ class AppConstants {
 
         const val URL_PUBLICITY = URL_BASE + "pt-BR/api/publicities/ipad"
         const val URL_TERMOS= URL_BASE + "api/terms"
+
+        const val emptyServerId = -1
+
+
+        //Configurações AxReg Servidor
+
+        //URL BASE DE Produção https://axreg-server.anestech.com.br/app
+
+        //URL BASE De Homologação http://dev.axreg-server.anestech.com.br/app
 
     }
 }

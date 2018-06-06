@@ -19,7 +19,7 @@ import java.util.*
  */
 class FirebaseMessageService : FirebaseMessagingService() {
 
-    val CHANNEL_ID = "axcalc"
+    val CHANNEL_ID = "axreg"
     val TAG = "@@@AxRegDroid"
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
