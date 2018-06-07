@@ -19,6 +19,7 @@ class LoginActivity : BaseActivity() {
 
     fun openForgotPassword(){
         replaceFragment(R.id.frame_login, RecoverPasswordFragment())
-
     }
+
+
 }

@@ -15,4 +15,5 @@
     <string name="logoAnestech">Logo Anestech</string>
     <string name="action_news">News</string>
     <string name="action_ads">Comunicados</string>
+    <string name="error_empty_fields">Por favor preencha todos campos</string>
 </resources>

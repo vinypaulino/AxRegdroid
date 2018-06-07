@@ -9,7 +9,7 @@ import java.util.*
 open class User (
 
         @PrimaryKey
-        var id: Long = DbUtils.getIdForUser(),
+        var id: Long = 0,
         var uuid: String = "",
         var email: String = "",
         var password: String = "",
