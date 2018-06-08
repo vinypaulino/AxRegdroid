@@ -7,4 +7,6 @@ import br.com.anestech.axcalc.models.User
  */
 interface CallbackResponse<T> {
     fun success(response: T)
+
+    fun failure(throwable: Throwable)
 }

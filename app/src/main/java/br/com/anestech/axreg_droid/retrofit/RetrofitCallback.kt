@@ -8,11 +8,11 @@ import retrofit2.Response.success
 /**
  * Created by vinicius on 07/06/18.
  */
-fun <T> callback (response: (response: Response<T>?) -> Unit,
-                  failure: (throwable: Throwable?) -> Unit): Callback<T>{
+fun <T> callback(response: (response: Response<T>?) -> Unit,
+                 failure: (throwable: Throwable?) -> Unit): Callback<T> {
     return object : Callback<T> {
         override fun onResponse(call: Call<T>?, response: Response<T>?) {
-            success(response)
+            response(response)
         }
 
         override fun onFailure(call: Call<T>?, t: Throwable?) {
