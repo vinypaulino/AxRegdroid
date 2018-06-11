@@ -45,17 +45,15 @@ class LoginFragment : BaseFragment() {
             loginActivity.toast("Criar Conta ! ")
         }
         btn_login.setOnClickListener {
-          login()
+            login()
         }
     }
 
     fun login() {
-
         val email = edt_login_email.text.toString().trim().takeUnless { it.isNullOrEmpty() }?.toString()
                 ?: throw IllegalArgumentException("empty fields")
         val password = edt_login_password.text.toString().trim().takeUnless { it.isNullOrEmpty() }?.toString()
                 ?: throw IllegalArgumentException("empty fields")
-
 
         LoginWebClient().login(email, password, object : CallbackResponse<User> {
             override fun failure(throwable: Throwable) {
@@ -66,11 +64,8 @@ class LoginFragment : BaseFragment() {
                 Log.e("success", "Login criado com sucesso")
                 startActivity<MainActivity>()
             }
-
-
         })
-
-        }
+    }
 }
 
 
