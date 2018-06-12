@@ -6,7 +6,6 @@ import br.com.anestech.axreg_droid.retrofit.RetrofitInicializer
 import br.com.anestech.axreg_droid.retrofit.response.CallbackResponse
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 /**
  * Created by vinicius on 07/06/18.
@@ -14,16 +13,15 @@ import javax.security.auth.callback.Callback
 class LoginWebClient {
     fun login(email: String, password: String, callbackResponse: CallbackResponse<User> ) {
 
-        val teste : String = "teste vinicius"
-        Log.e("teste", teste)
-
         val call = RetrofitInicializer().loginService().login(email, password)
         call.enqueue(object : retrofit2.Callback<User> {
 
             override fun onResponse(call: Call<User>?, response: Response<User>?) {
-                response?.body()?.let {
-                    val userResponse: User = it
+                if (response?.isSuccessful!!){
+                    val userResponse: User = response.body()!!
                     callbackResponse.success(userResponse)
+                } else if (response?.code() == 401){
+                    callbackResponse.responseFailure()
                 }
             }
 
@@ -32,7 +30,27 @@ class LoginWebClient {
                     callbackResponse.failure(t!!)
                     Log.e("onFailure error", t?.message)
                 }
+            }
+        })
+    }
 
+    fun passwordReset(email: String, callbackResponse: CallbackResponse<String>){
+
+        val call = RetrofitInicializer().loginService().passwordReset(email)
+        call.enqueue(object : retrofit2.Callback<String>{
+
+            override fun onResponse(call: Call<String>?, response: Response<String>?){
+                if (response?.message() == "OK"){
+                    callbackResponse.success(response = response.body()!!)
+                } else {
+                    callbackResponse.responseFailure()
+                }
+            }
+
+            override fun onFailure(call: Call<String>?, t: Throwable?){
+                callbackResponse.failure(t!!)
+                Log.e("onFailureteste", "Falha na comunicação com o servidor ${call.toString()}")
+                t?.printStackTrace()
             }
         })
     }

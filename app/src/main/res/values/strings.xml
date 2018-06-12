@@ -16,4 +16,8 @@
     <string name="action_news">News</string>
     <string name="action_ads">Comunicados</string>
     <string name="error_empty_fields">Por favor preencha todos campos</string>
+    <string name="failure_server">Não foi possivel realizar o login verifique sua conexão com a internet</string>
+    <string name="user_password_invalid">Usuário ou Senha inválidos</string>
+    <string name="email_sent">Email enviado</string>
+    <string name="message_email_sent">Enviamos um email com instruções de como redefinir \n sua senha. Por favor verifique sua caixa de entrada.</string>
 </resources>

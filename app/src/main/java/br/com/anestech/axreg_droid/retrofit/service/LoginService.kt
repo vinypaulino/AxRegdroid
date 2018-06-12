@@ -12,4 +12,8 @@ interface LoginService {
     @FormUrlEncoded
     @POST("login")
     fun login(@Field("email") email: String, @Field("password") password: String): Call<User>
+
+    @FormUrlEncoded
+    @POST("users/passwordReset")
+    fun passwordReset(@Field("email") email: String): Call<String>
 }

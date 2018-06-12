@@ -6,7 +6,9 @@ import android.view.MenuItem
 import br.com.anestech.axcalc.activities.main.ads.AdsGalleryFragment
 import br.com.anestech.axcalc.services.api.AxServerApi
 import br.com.anestech.axreg_droid.R
+import br.com.anestech.axreg_droid.extensions.addFragment
 import br.com.anestech.axreg_droid.extensions.setupToolbar
+import br.com.anestech.axreg_droid.fragments.MainFragment
 import org.jetbrains.anko.doAsync
 
 class MainActivity : BaseActivity() {
@@ -14,9 +16,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        setupToolbar(R.id.toolbar, "Main activity", true)
-
+        addFragment(R.id.content, MainFragment())
     }
 
     override fun onResume() {
@@ -31,7 +31,7 @@ class MainActivity : BaseActivity() {
                 loadFragmentAds()
                 intent.action = null
             }
-        }catch (ex: Exception){
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
     }

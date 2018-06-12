@@ -3,6 +3,7 @@ package br.com.anestech.axcalc
 
 import android.app.Application
 import br.com.anestech.axcalc.database.DbInitialData
+import br.com.anestech.axcalc.models.User
 import io.realm.Realm
 import io.realm.RealmConfiguration
 
@@ -16,6 +17,7 @@ class AppCache : Application() {
     override fun onCreate() {
         super.onCreate()
         configAndInitRealm()
+        appInstance = this
     }
 
     /**
@@ -27,13 +29,21 @@ class AppCache : Application() {
         val config = RealmConfiguration.Builder()
               //  .initialData(DbInitialData())
                 .name("axreg.realm")
+                .deleteRealmIfMigrationNeeded()
                 .build()
 
         Realm.setDefaultConfiguration(config)
     }
 
     companion object {
-//        var currentUser:User? = null
+        private var appInstance: AppCache? = null
+        fun getInstance(): AppCache {
+            if (appInstance == null){
+                throw IllegalStateException("Configure a classe Application no AndroidManifest.xml")
+            }
+            return appInstance!!
+        }
+        //var currentUser: User? = null
 //        private var tracker: Tracker? = null
 //        @Synchronized
 //        fun getDefaultTracker(ctx: Context): Tracker {

@@ -13,15 +13,13 @@ import br.com.anestech.axreg_droid.activity.MainActivity
 import br.com.anestech.axreg_droid.extensions.toast
 import br.com.anestech.axreg_droid.retrofit.response.CallbackResponse
 import br.com.anestech.axreg_droid.retrofit.webclient.LoginWebClient
+import br.com.anestech.axreg_droid.utils.Prefs
+import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.jetbrains.anko.support.v4.startActivity
 
 class LoginFragment : BaseFragment() {
     var loginActivity: LoginActivity = LoginActivity()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -56,15 +54,41 @@ class LoginFragment : BaseFragment() {
                 ?: throw IllegalArgumentException("empty fields")
 
         LoginWebClient().login(email, password, object : CallbackResponse<User> {
+            override fun responseFailure() {
+                activity?.toast(R.string.user_password_invalid)
+                edt_login_email.setText("")
+                edt_login_password.setText("")
+            }
+
             override fun failure(throwable: Throwable) {
+                activity?.toast(R.string.failure_server)
                 Log.e("OnFailure", "login nao realizado")
+
             }
 
             override fun success(response: User) {
-                Log.e("success", "Login criado com sucesso")
+                insertUserRealm(response)
+
+                insertUserPrefs(response)
+
                 startActivity<MainActivity>()
+                activity?.finish()
             }
         })
+    }
+
+    private fun insertUserPrefs(response: User) {
+        Prefs.setString("uuid", response.uuid)
+        Prefs.setString("email", response.email)
+        Prefs.setString("token", response.token)
+    }
+
+    private fun insertUserRealm(response: User) {
+        val realm = Realm.getDefaultInstance()
+        realm.executeTransaction {
+            realm.insertOrUpdate(response)
+        }
+        realm.close()
     }
 }
 
