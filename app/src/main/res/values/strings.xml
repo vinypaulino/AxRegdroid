@@ -20,4 +20,8 @@
     <string name="user_password_invalid">Usuário ou Senha inválidos</string>
     <string name="email_sent">Email enviado</string>
     <string name="message_email_sent">Enviamos um email com instruções de como redefinir \n sua senha. Por favor verifique sua caixa de entrada.</string>
+    <string name="resend_email">REENVIAR EMAIL</string>
+    <string name="title_success">Sucesso</string>
+    <string name="msg_email_success">Um novo email foi enviado com sucesso, verifique sua caixa de entrada.</string>
+    <string name="ok">OK</string>
 </resources>

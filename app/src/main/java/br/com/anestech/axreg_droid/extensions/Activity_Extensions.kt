@@ -52,7 +52,7 @@ fun AppCompatActivity.addFragment(@IdRes layoutId: Int, fragment: Fragment) {
 
 fun AppCompatActivity.replaceFragment(@IdRes layoutId: Int, fragment: Fragment){
     val ft = supportFragmentManager.beginTransaction()
-    ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+    ft.setCustomAnimations(R.anim.enter_from_bottom, R.anim.exit_to_top)
     ft.replace(layoutId, fragment)
     ft.addToBackStack(null)
     ft.commit()

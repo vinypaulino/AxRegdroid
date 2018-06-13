@@ -7,10 +7,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import br.com.anestech.axreg_droid.R
+import br.com.anestech.axreg_droid.activity.LoginActivity
 import br.com.anestech.axreg_droid.retrofit.response.CallbackResponse
 import br.com.anestech.axreg_droid.retrofit.webclient.LoginWebClient
 import kotlinx.android.synthetic.main.fragment_recover_password.*
+import org.jetbrains.anko.support.v4.startActivity
 
 
 class RecoverPasswordFragment : Fragment() {
@@ -33,6 +36,10 @@ class RecoverPasswordFragment : Fragment() {
         btn_send_email.setOnClickListener {
             passwordReset()
         }
+
+        btn_close.setOnClickListener {
+           startActivity<LoginActivity>()
+        }
     }
 
     private fun passwordReset() {
@@ -42,8 +49,9 @@ class RecoverPasswordFragment : Fragment() {
         LoginWebClient().passwordReset(email, object : CallbackResponse<String> {
             override fun success(response: String) {
 
-              SentEmailDialog(activity?.window!!.decorView as ViewGroup, activity!!)
+                SentEmailDialog(activity?.window!!.decorView as ViewGroup, activity!!)
                       .configuraDialog()
+
             }
 
             override fun failure(throwable: Throwable) {
