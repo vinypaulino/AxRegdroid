@@ -52,6 +52,8 @@ class RecoverPasswordFragment : Fragment() {
                 SentEmailDialog(activity?.window!!.decorView as ViewGroup, activity!!)
                       .configuraDialog()
 
+
+
             }
 
             override fun failure(throwable: Throwable) {

@@ -10,6 +10,7 @@ import br.com.anestech.axreg_droid.R
 import br.com.anestech.axreg_droid.activity.LoginActivity
 import kotlinx.android.synthetic.main.dialog_sent_email.view.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.startActivity
 import kotlin.coroutines.experimental.coroutineContext
 import kotlin.system.exitProcess
 
@@ -41,18 +42,17 @@ class SentEmailDialog(private val viewGroup: ViewGroup,
             AlertDialog.Builder(context)
                     .setTitle(R.string.title_success)
                     .setMessage(R.string.msg_email_success)
-                    .setPositiveButton(R.string.ok) { dialog, whichButton ->
+                    .setPositiveButton(R.string.ok) { dialog, _ ->
                         dialog.dismiss()
+                        context.startActivity<LoginActivity>()
                     }
                     .create()
                     .show()
         }
 
         viewCriada.btn_close_dialog.setOnClickListener {
-            Toast.makeText(context, "clicou no fechar do Dialog", Toast.LENGTH_LONG).show()
+            context.startActivity<LoginActivity>()
         }
         return viewCriada
     }
-
 }
-
