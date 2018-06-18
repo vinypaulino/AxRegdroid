@@ -15,7 +15,7 @@ import kotlin.coroutines.experimental.coroutineContext
 import kotlin.system.exitProcess
 
 /**
- * Created by Vinícius on 12/06/18.
+ * Created by Vinícius Paulino on 12/06/18.
  */
 class SentEmailDialog(private val viewGroup: ViewGroup,
                       private val context: Context) {

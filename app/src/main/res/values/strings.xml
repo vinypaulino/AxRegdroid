@@ -24,4 +24,19 @@
     <string name="title_success">Sucesso</string>
     <string name="msg_email_success">Um novo email foi enviado com sucesso, verifique sua caixa de entrada.</string>
     <string name="ok">OK</string>
+    <string name="title_activity_create_account">CreateAccountActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="accoount_creation">Criação de conta</string>
+    <string name="personal_data">Informe seus dados pessoais</string>
+    <string name="name">Nome</string>
+    <string name="cpf">CPF</string>
+    <string name="phone">Telefone</string>
+    <string name="date_of_birth">Data de Nascimento</string>
+    <string name="access_data">Informe seus dados de acesso</string>
+    <string name="confirm_email">Confirmar e-mail</string>
+    <string name="password_confirm">Confirme a senha</string>
+    <string name="password_information">Sua senha precisa ter 8 caracteres, letras maiúsculas e  minúsculas, pelo  menos um caractere especial e um número.</string>
+    <string name="text_terms_use">Ao confirmar o cadastro você concorda com nossos</string>
+    <string name="link_terms_use">Termos de Uso e Política de Privacidade</string>
 </resources>

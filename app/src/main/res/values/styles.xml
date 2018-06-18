@@ -17,7 +17,8 @@
     </style>
 
     <style name="StyledTilEditTextTheme">
-        <item name="colorControlNormal">@color/transparent</item> // Cor padrão da linha
+        <item name="colorControlNormal">@color/transparent</item>
+        // Cor padrão da linha
         <item name="colorControlActivated">@color/transparent</item>
 
 
@@ -39,4 +40,8 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
