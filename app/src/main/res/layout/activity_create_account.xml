@@ -49,6 +49,7 @@
         app:srcCompat="@drawable/next_arrow_icon" />
 
     <FrameLayout
+        android:id="@+id/frameCreateAccount"
         android:layout_width="617dp"
         android:layout_height="954dp"
         android:layout_marginBottom="8dp"

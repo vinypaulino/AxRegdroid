@@ -1,12 +1,8 @@
 package br.com.anestech.axreg_droid.activity
 
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -15,10 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 
 import br.com.anestech.axreg_droid.R
-import kotlinx.android.synthetic.main.activity_create_account.*
+import br.com.anestech.axreg_droid.extensions.addFragment
+import br.com.anestech.axreg_droid.fragments.AccountCreateStageOneFragment
 import kotlinx.android.synthetic.main.fragment_create_account.view.*
 
-class CreateAccountActivity : AppCompatActivity() {
+class CreateAccountActivity : BaseActivity() {
 
     /**
      * The [android.support.v4.view.PagerAdapter] that will provide
@@ -36,6 +33,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
+        addFragment(R.id.frameCreateAccount, AccountCreateStageOneFragment())
     }
 
 

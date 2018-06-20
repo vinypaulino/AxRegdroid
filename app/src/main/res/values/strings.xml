@@ -32,6 +32,7 @@
     <string name="name">Nome</string>
     <string name="cpf">CPF</string>
     <string name="phone">Telefone</string>
+    <string name="country">Países</string>
     <string name="date_of_birth">Data de Nascimento</string>
     <string name="access_data">Informe seus dados de acesso</string>
     <string name="confirm_email">Confirmar e-mail</string>

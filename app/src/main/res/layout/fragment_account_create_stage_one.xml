@@ -1,332 +1,348 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_constraintWidth_default="spread"
-    tools:context="br.com.anestech.axreg_droid.fragments.AccountCreateStageOneFragment">
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintWidth_default="spread"
+        tools:context="br.com.anestech.axreg_droid.fragments.AccountCreateStageOneFragment">
 
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/nameWrapper"
-        style="@style/StyledTilEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="242dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="17dp"
-        android:background="@drawable/edit_custom"
-        app:hintTextAppearance="@style/Hint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/edt_register_name"
-            android:layout_width="match_parent"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/nameWrapper"
+            style="@style/StyledTilEditText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/name"
-            android:inputType="textEmailAddress"
-            android:textAlignment="inherit"
-            android:textSize="18sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginBottom="242dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/edit_custom"
+            app:hintTextAppearance="@style/Hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.718"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.0">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/personal_data"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+            <EditText
+                android:id="@+id/edt_register_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/name"
+                android:inputType="textEmailAddress"
+                android:textAlignment="inherit"
+                android:textSize="18sp" />
+        </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/CpfWrapper"
-        style="@style/StyledTilEditText"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="242dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="43dp"
-        android:background="@drawable/edit_custom"
-        app:hintTextAppearance="@style/Hint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/phoneWrapper"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameWrapper"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/edt_register_cpf"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat"
-            android:hint="@string/cpf"
-            android:inputType="textEmailAddress"
-            android:textAlignment="inherit"
-            android:textSize="18sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:text="@string/personal_data"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/phoneWrapper"
-        style="@style/StyledTilEditText"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="242dp"
-        android:layout_marginTop="43dp"
-        android:background="@drawable/edit_custom"
-        app:hintTextAppearance="@style/Hint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/nameWrapper"
-        app:layout_constraintStart_toEndOf="@+id/CpfWrapper"
-        app:layout_constraintTop_toBottomOf="@+id/nameWrapper"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/edt_register_phone"
-            android:layout_width="match_parent"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/CpfWrapper"
+            style="@style/StyledTilEditText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/phone"
-            android:inputType="textEmailAddress"
-            android:textAlignment="inherit"
-            android:textSize="18sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginBottom="242dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="43dp"
+            android:background="@drawable/edit_custom"
+            app:hintTextAppearance="@style/Hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/phoneWrapper"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameWrapper"
+            app:layout_constraintVertical_bias="0.0">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edit_custom"
-        app:layout_constraintEnd_toEndOf="@+id/CpfWrapper"
-        app:layout_constraintStart_toStartOf="@+id/CpfWrapper"
-        app:layout_constraintTop_toBottomOf="@+id/CpfWrapper" />
+            <EditText
+                android:id="@+id/edt_register_cpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/cpf"
+                android:inputType="textEmailAddress"
+                android:textAlignment="inherit"
+                android:textSize="18sp" />
+        </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/DateWrapper"
-        style="@style/StyledTilEditText"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edit_custom"
-        app:hintTextAppearance="@style/Hint"
-        app:layout_constraintEnd_toEndOf="@+id/phoneWrapper"
-        app:layout_constraintStart_toStartOf="@+id/phoneWrapper"
-        app:layout_constraintTop_toBottomOf="@+id/phoneWrapper">
-
-        <EditText
-            android:id="@+id/edt_register_date_of_birth"
-            android:layout_width="match_parent"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/phoneWrapper"
+            style="@style/StyledTilEditText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/date_of_birth"
-            android:inputType="date"
-            android:textAlignment="inherit"
-            android:textSize="18sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginBottom="242dp"
+            android:layout_marginTop="43dp"
+            android:background="@drawable/edit_custom"
+            app:hintTextAppearance="@style/Hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/nameWrapper"
+            app:layout_constraintStart_toEndOf="@+id/CpfWrapper"
+            app:layout_constraintTop_toBottomOf="@+id/nameWrapper"
+            app:layout_constraintVertical_bias="0.0">
 
-    <View
-        android:id="@+id/register_linha"
-        android:layout_width="78dp"
-        android:layout_height="3dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="31dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            <EditText
+                android:id="@+id/edt_register_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/phone"
+                android:inputType="textEmailAddress"
+                android:textAlignment="inherit"
+                android:textSize="18sp" />
+        </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/gradient_spinner"
+            app:layout_constraintEnd_toEndOf="@+id/CpfWrapper"
+            app:layout_constraintStart_toStartOf="@+id/CpfWrapper"
+            app:layout_constraintTop_toBottomOf="@+id/CpfWrapper" />
 
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/access_data"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_linha"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/emailWrapperRegister"
-        style="@style/StyledTilEditText"
-        android:layout_width="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_custom"
-        app:hintTextAppearance="@style/Hint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/DateWrapper"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/edt_register_email"
-            android:layout_width="match_parent"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/DateWrapper"
+            style="@style/StyledTilEditText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:textAlignment="inherit"
-            android:textSize="18sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edit_custom"
+            app:hintTextAppearance="@style/Hint"
+            app:layout_constraintEnd_toEndOf="@+id/phoneWrapper"
+            app:layout_constraintStart_toStartOf="@+id/phoneWrapper"
+            app:layout_constraintTop_toBottomOf="@+id/phoneWrapper">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/confirmEmailWrapperRegistermailWrapperRegister"
-        style="@style/StyledTilEditText"
-        android:layout_width="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edit_custom"
-        app:hintTextAppearance="@style/Hint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/emailWrapperRegister"
-        app:layout_constraintStart_toStartOf="@+id/emailWrapperRegister"
-        app:layout_constraintTop_toBottomOf="@+id/emailWrapperRegister"
-        app:layout_constraintVertical_bias="0.0">
+            <EditText
+                android:id="@+id/edt_register_date_of_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/date_of_birth"
+                android:inputType="date"
+                android:textAlignment="inherit"
+                android:textSize="18sp" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edt_register_confirm_email"
-            android:layout_width="match_parent"
+        <View
+            android:id="@+id/register_linha"
+            android:layout_width="78dp"
+            android:layout_height="3dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="31dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat"
-            android:hint="@string/confirm_email"
-            android:inputType="textEmailAddress"
-            android:textAlignment="inherit"
-            android:textSize="18sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:text="@string/access_data"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_linha"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/passwordWrapper"
-        style="@style/StyledTilEditText"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edit_custom"
-        app:hintTextAppearance="@style/Hint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/confirmEmailWrapperRegistermailWrapperRegister"
-        app:layout_constraintVertical_bias="0.0">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/emailWrapperRegister"
+            style="@style/StyledTilEditText"
+            android:layout_width="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_custom"
+            app:hintTextAppearance="@style/Hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/DateWrapper"
+            app:layout_constraintStart_toStartOf="@+id/spinner"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.0">
 
-        <EditText
-            android:id="@+id/edt_register_password"
-            android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/edt_register_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textAlignment="inherit"
+                android:textSize="18sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/confirmEmailWrapperRegistermailWrapperRegister"
+            style="@style/StyledTilEditText"
+            android:layout_width="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edit_custom"
+            app:hintTextAppearance="@style/Hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/emailWrapperRegister"
+            app:layout_constraintStart_toStartOf="@+id/emailWrapperRegister"
+            app:layout_constraintTop_toBottomOf="@+id/emailWrapperRegister"
+            app:layout_constraintVertical_bias="0.0">
+
+            <EditText
+                android:id="@+id/edt_register_confirm_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/confirm_email"
+                android:inputType="textEmailAddress"
+                android:textAlignment="inherit"
+                android:textSize="18sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/passwordWrapper"
+            style="@style/StyledTilEditText"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edit_custom"
+            app:hintTextAppearance="@style/Hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/spinner"
+            app:layout_constraintStart_toStartOf="@+id/spinner"
+            app:layout_constraintTop_toBottomOf="@+id/confirmEmailWrapperRegistermailWrapperRegister"
+            app:layout_constraintVertical_bias="0.0">
+
+            <EditText
+                android:id="@+id/edt_register_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/password"
+                android:inputType="textEmailAddress"
+                android:textAlignment="inherit"
+                android:textSize="18sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/passwordRegisterWrapper"
+            style="@style/StyledTilEditText"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edit_custom"
+            app:hintTextAppearance="@style/Hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/DateWrapper"
+            app:layout_constraintStart_toStartOf="@+id/DateWrapper"
+            app:layout_constraintTop_toBottomOf="@+id/confirmEmailWrapperRegistermailWrapperRegister"
+            app:layout_constraintVertical_bias="0.0">
+
+            <EditText
+                android:id="@+id/edt_register_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/password_confirm"
+                android:inputType="textEmailAddress"
+                android:textAlignment="inherit"
+                android:textSize="18sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/text_password_information"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/password"
-            android:inputType="textEmailAddress"
-            android:textAlignment="inherit"
-            android:textSize="18sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/password_information"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/passwordRegisterWrapper"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/passwordWrapper"
+            app:layout_constraintTop_toBottomOf="@+id/passwordWrapper"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/passwordRegisterWrapper"
-        style="@style/StyledTilEditText"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edit_custom"
-        app:hintTextAppearance="@style/Hint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/DateWrapper"
-        app:layout_constraintStart_toStartOf="@+id/DateWrapper"
-        app:layout_constraintTop_toBottomOf="@+id/confirmEmailWrapperRegistermailWrapperRegister"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/edt_register_confirm_password"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textTermsUse"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat"
-            android:hint="@string/password_confirm"
-            android:inputType="textEmailAddress"
-            android:textAlignment="inherit"
-            android:textSize="18sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:text="@string/text_terms_use"
+            android:textColor="@color/darkGreyBlue"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/passwordRegisterWrapper"
+            app:layout_constraintStart_toStartOf="@+id/passwordWrapper"
+            app:layout_constraintTop_toBottomOf="@+id/text_password_information" />
 
-    <TextView
-        android:id="@+id/text_password_information"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/password_information"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/passwordRegisterWrapper"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/passwordWrapper"
-        app:layout_constraintTop_toBottomOf="@+id/passwordWrapper"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textLinkTermsUse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat"
+            android:linksClickable="true"
+            android:text="@string/link_terms_use"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textTermsUse"
+            app:layout_constraintStart_toStartOf="@+id/textTermsUse"
+            app:layout_constraintTop_toBottomOf="@+id/textTermsUse"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textTermsUse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/text_terms_use"
-        android:textColor="@color/darkGreyBlue"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/passwordRegisterWrapper"
-        app:layout_constraintStart_toStartOf="@+id/passwordWrapper"
-        app:layout_constraintTop_toBottomOf="@+id/text_password_information" />
-
-    <TextView
-        android:id="@+id/textLinkTermsUse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/montserrat"
-        android:linksClickable="true"
-        android:text="@string/link_terms_use"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textTermsUse"
-        app:layout_constraintStart_toStartOf="@+id/textTermsUse"
-        app:layout_constraintTop_toBottomOf="@+id/textTermsUse"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/hintSpinner"
+            style="@style/InputLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/country"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="@+id/spinner"
+            app:layout_constraintTop_toTopOf="@+id/spinner" />
 
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
