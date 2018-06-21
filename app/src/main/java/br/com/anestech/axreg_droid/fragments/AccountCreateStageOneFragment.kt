@@ -3,17 +3,24 @@ package br.com.anestech.axreg_droid.fragments
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import br.com.anestech.axreg_droid.R
+import br.com.anestech.axreg_droid.validator.DefaultValidation
+import br.com.anestech.axreg_droid.validator.ValidCpf
+import br.com.anestech.axreg_droid.validator.ValidPhone
+import br.com.caelum.stella.format.CPFFormatter
+import br.com.caelum.stella.validation.CPFValidator
+import br.com.caelum.stella.validation.InvalidStateException
 import br.com.vinipaulino.mobile.financask.extension.formataParaBrasileiro
 import kotlinx.android.synthetic.main.fragment_account_create_stage_one.*
 import kotlinx.android.synthetic.main.fragment_account_create_stage_one.view.*
+import java.lang.IllegalArgumentException
 import java.util.*
 
 
@@ -40,27 +47,12 @@ class AccountCreateStageOneFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val textInputNomeCompleto: TextInputLayout = nameWrapper
-        var campoNomeCompleto = textInputNomeCompleto.editText
+        addValidationDefault(edt_register_name)
 
-        addValidationDefault(campoNomeCompleto)
+        configFieldCpf()
 
-        edt_register_cpf.setOnFocusChangeListener { v, hasFocus ->
-            var cpf = edt_register_cpf.text.toString()
-            if (!hasFocus) {
-                if (cpf.isEmpty()) {
-                    edt_register_cpf.error = "Campo obrigatório"
-                    return@setOnFocusChangeListener
-                }
-            }
+        configFieldPhone()
 
-            if (cpf.length != 11) {
-                edt_register_cpf.error = "Cpf inválido"
-            }
-
-        }
-
-        addValidationDefault(edt_register_phone)
 
         addValidationDefault(edt_register_date_of_birth)
 
@@ -73,13 +65,43 @@ class AccountCreateStageOneFragment : BaseFragment() {
         addValidationDefault(edt_register_confirm_password)
     }
 
-    private fun addValidationDefault(campo: EditText?) {
-        campo?.setOnFocusChangeListener { v, hasFocus ->
+    private fun configFieldPhone() {
+        val validator = ValidPhone(edt_register_phone)
+        edt_register_phone
+        edt_register_phone.setOnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus){
+                validator.isValid()
+            }
+        }
+    }
+
+    private fun configFieldCpf() {
+        val validator = ValidCpf(edt_register_cpf)
+        val cpfFormatter = CPFFormatter()
+        edt_register_cpf.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                addFormatting(cpfFormatter)
+            } else {
+                validator.isValid()
+            }
+        }
+    }
+
+    private fun addFormatting(cpfFormatter: CPFFormatter) {
+        try {
+            val cpfSemFormato = cpfFormatter.unformat(edt_register_cpf.text.toString())
+            edt_register_cpf.setText(cpfSemFormato)
+        } catch (e: IllegalArgumentException) {
+            Log.e("Erro Formatação cpf", e.message)
+        }
+    }
+
+
+    private fun addValidationDefault(campo: EditText) {
+        val validator = DefaultValidation(campo)
+        campo.setOnFocusChangeListener { v, hasFocus ->
             if (!hasFocus) {
-                var text = campo.text.toString()
-                if (text.isEmpty()) {
-                    campo?.error = "Campo Obrigatório"
-                }
+                validator.isValid()
             }
         }
     }
@@ -102,9 +124,7 @@ class AccountCreateStageOneFragment : BaseFragment() {
             if (hasFocus) {
                 openDataPickerDialog()
             }
-
         }
-
     }
 
     private fun openDataPickerDialog() {

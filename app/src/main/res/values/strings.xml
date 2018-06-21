@@ -40,4 +40,7 @@
     <string name="password_information">Sua senha precisa ter 8 caracteres, letras maiúsculas e  minúsculas, pelo  menos um caractere especial e um número.</string>
     <string name="text_terms_use">Ao confirmar o cadastro você concorda com nossos</string>
     <string name="link_terms_use">Termos de Uso e Política de Privacidade</string>
+    <string name="error_field_required">Campo obrigatório</string>
+    <string name="error_invalid_cpf">Cpf inválido</string>
+    <string name="error_digits_cpf">O cpf precisa ter 11 digitos</string>
 </resources>

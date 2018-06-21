@@ -19,6 +19,11 @@ class AppConstants {
 
         const val emptyServerId = -1
 
+        //Erros de Validação
+        const val ERROR_FIELD_REQUIRED = "Campo obrigatório"
+        const val ERROR_CPF_INVALID = "Cpf inválido"
+        const val ERROR_DIGITS_CPF = "O cpf precisa ter 11 digitos"
+        const val ERROR_PHONE_DIGITS = "Telefone deve ter entre 10 a 11 digitos"
 
         //Configurações AxReg Servidor
 
