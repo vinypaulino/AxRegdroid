@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import br.com.anestech.axreg_droid.R
+import br.com.anestech.axreg_droid.formatter.FormatterPhoneWhithDDD
 import br.com.anestech.axreg_droid.validator.DefaultValidation
 import br.com.anestech.axreg_droid.validator.ValidCpf
 import br.com.anestech.axreg_droid.validator.ValidPhone
@@ -20,6 +21,7 @@ import br.com.caelum.stella.validation.InvalidStateException
 import br.com.vinipaulino.mobile.financask.extension.formataParaBrasileiro
 import kotlinx.android.synthetic.main.fragment_account_create_stage_one.*
 import kotlinx.android.synthetic.main.fragment_account_create_stage_one.view.*
+import java.lang.Exception
 import java.lang.IllegalArgumentException
 import java.util.*
 
@@ -66,12 +68,22 @@ class AccountCreateStageOneFragment : BaseFragment() {
     }
 
     private fun configFieldPhone() {
+        val formatterPhoneWhithDDD = FormatterPhoneWhithDDD()
         val validator = ValidPhone(edt_register_phone)
         edt_register_phone
         edt_register_phone.setOnFocusChangeListener { v, hasFocus ->
             if (!hasFocus){
                 validator.isValid()
+            } else{
+                try {
+                    val phoneUnFormatter = formatterPhoneWhithDDD.remove(edt_register_phone.text.toString())
+                    edt_register_phone.setText(phoneUnFormatter)
+                } catch (e: Exception){
+                    Log.e("Erro ao formatar","Erro ao desformatar o telefone")
+                }
+
             }
+
         }
     }
 

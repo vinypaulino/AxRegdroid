@@ -2,15 +2,16 @@ package br.com.anestech.axreg_droid.validator
 
 import android.widget.EditText
 import br.com.anestech.axcalc.AppConstants.Companion.ERROR_PHONE_DIGITS
+import br.com.anestech.axreg_droid.formatter.FormatterPhoneWhithDDD
 
 /**
- * Created by vinicius on 21/06/18.
+ * Created by Vinícius Paulino on 21/06/18.
  */
 public class ValidPhone(fieldPhone: EditText) {
 
     private val fieldPhone = fieldPhone
     private val defaultValidation = DefaultValidation(fieldPhone)
-
+    private val formatter = FormatterPhoneWhithDDD()
 
     private fun validNumberPhone(phoneWithDDD: String): Boolean {
         val digits = phoneWithDDD.length
@@ -25,12 +26,10 @@ public class ValidPhone(fieldPhone: EditText) {
         if (!defaultValidation.isValid()) return false
         if (!validNumberPhone(fieldPhone.text.toString())) return false
 
-        addFormat()
+        formatter.addFormat(fieldPhone)
 
         return true
     }
 
-    private fun addFormat() {
-         TODO("implementar esse codigo")
-    }
+
 }
