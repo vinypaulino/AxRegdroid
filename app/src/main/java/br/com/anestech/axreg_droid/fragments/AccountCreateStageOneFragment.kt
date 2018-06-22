@@ -14,6 +14,7 @@ import br.com.anestech.axreg_droid.R
 import br.com.anestech.axreg_droid.formatter.FormatterPhoneWhithDDD
 import br.com.anestech.axreg_droid.validator.DefaultValidation
 import br.com.anestech.axreg_droid.validator.ValidCpf
+import br.com.anestech.axreg_droid.validator.ValidEmail
 import br.com.anestech.axreg_droid.validator.ValidPhone
 import br.com.caelum.stella.format.CPFFormatter
 import br.com.caelum.stella.validation.CPFValidator
@@ -58,28 +59,46 @@ class AccountCreateStageOneFragment : BaseFragment() {
 
         addValidationDefault(edt_register_date_of_birth)
 
-        addValidationDefault(edt_register_email)
+        configFildEmail()
 
-        addValidationDefault(edt_register_confirm_email)
+        configFieldConfirmEmail()
 
         addValidationDefault(edt_register_password)
 
         addValidationDefault(edt_register_confirm_password)
     }
 
+    private fun configFieldConfirmEmail() {
+        val validator = ValidEmail(edt_register_confirm_email)
+        edt_register_confirm_email.setOnFocusChangeListener { _, hasFocus ->
+            if(!hasFocus) {
+                validator.isValidConfirmEmail(edt_register_email)
+            }
+
+        }
+    }
+
+    private fun configFildEmail() {
+        val validator = ValidEmail(edt_register_email)
+        edt_register_email.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                validator.isValid()
+            }
+        }
+    }
+
     private fun configFieldPhone() {
         val formatterPhoneWhithDDD = FormatterPhoneWhithDDD()
         val validator = ValidPhone(edt_register_phone)
-        edt_register_phone
         edt_register_phone.setOnFocusChangeListener { v, hasFocus ->
-            if (!hasFocus){
+            if (!hasFocus) {
                 validator.isValid()
-            } else{
+            } else {
                 try {
                     val phoneUnFormatter = formatterPhoneWhithDDD.remove(edt_register_phone.text.toString())
                     edt_register_phone.setText(phoneUnFormatter)
-                } catch (e: Exception){
-                    Log.e("Erro ao formatar","Erro ao desformatar o telefone")
+                } catch (e: Exception) {
+                    Log.e("Erro ao formatar", "Erro ao desformatar o telefone")
                 }
 
             }

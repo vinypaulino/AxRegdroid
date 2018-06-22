@@ -36,7 +36,7 @@
                 android:cursorVisible="true"
                 android:fontFamily="@font/montserrat"
                 android:hint="@string/name"
-                android:inputType="textEmailAddress"
+                android:inputType="textCapWords"
                 android:textAlignment="inherit"
                 android:textSize="18sp" />
         </android.support.design.widget.TextInputLayout>
@@ -73,7 +73,9 @@
             app:layout_constraintEnd_toStartOf="@+id/phoneWrapper"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameWrapper"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="64dp">
 
             <EditText
                 android:id="@+id/edt_register_cpf"
@@ -82,7 +84,7 @@
                 android:cursorVisible="true"
                 android:fontFamily="@font/montserrat"
                 android:hint="@string/cpf"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:textAlignment="inherit"
                 android:textSize="18sp" />
         </android.support.design.widget.TextInputLayout>
@@ -109,7 +111,7 @@
                 android:cursorVisible="true"
                 android:fontFamily="@font/montserrat"
                 android:hint="@string/phone"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:textAlignment="inherit"
                 android:textSize="18sp" />
         </android.support.design.widget.TextInputLayout>
@@ -238,6 +240,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/edit_custom"
+            app:passwordToggleEnabled="true"
             app:hintTextAppearance="@style/Hint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/spinner"
@@ -252,7 +255,7 @@
                 android:cursorVisible="true"
                 android:fontFamily="@font/montserrat"
                 android:hint="@string/password"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:textAlignment="inherit"
                 android:textSize="18sp" />
         </android.support.design.widget.TextInputLayout>
@@ -266,6 +269,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/edit_custom"
             app:hintTextAppearance="@style/Hint"
+            app:passwordToggleEnabled="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/DateWrapper"
             app:layout_constraintStart_toStartOf="@+id/DateWrapper"
@@ -279,7 +283,7 @@
                 android:cursorVisible="true"
                 android:fontFamily="@font/montserrat"
                 android:hint="@string/password_confirm"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:textAlignment="inherit"
                 android:textSize="18sp" />
         </android.support.design.widget.TextInputLayout>
@@ -297,7 +301,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/passwordWrapper"
             app:layout_constraintTop_toBottomOf="@+id/passwordWrapper"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginRight="30dp" />
 
         <TextView
             android:id="@+id/textTermsUse"
