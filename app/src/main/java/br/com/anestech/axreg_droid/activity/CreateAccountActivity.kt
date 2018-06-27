@@ -1,31 +1,41 @@
 package br.com.anestech.axreg_droid.activity
 
+import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-
+import android.view.*
+import android.widget.Toast
+import br.com.anestech.axcalc.models.User
 import br.com.anestech.axreg_droid.R
 import br.com.anestech.axreg_droid.extensions.addFragment
+import br.com.anestech.axreg_droid.extensions.toast
 import br.com.anestech.axreg_droid.fragments.AccountCreateStageOneFragment
+import br.com.anestech.axreg_droid.models.Anesthetist
+import br.com.anestech.axreg_droid.models.Country
+import br.com.anestech.axreg_droid.validator.DefaultValidation
+import br.com.anestech.axreg_droid.validator.ValidEmail
+import kotlinx.android.synthetic.main.activity_create_account.*
+import kotlinx.android.synthetic.main.fragment_account_create_stage_one.*
 import kotlinx.android.synthetic.main.fragment_create_account.view.*
+import org.jetbrains.anko.toast
+import java.time.LocalDate
+import java.time.LocalDate.parse
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class CreateAccountActivity : BaseActivity() {
 
-    /**
-     * The [android.support.v4.view.PagerAdapter] that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * [android.support.v4.app.FragmentStatePagerAdapter].
-     */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
+
+    private var nameString: String? = null
+    private var valid: Boolean = true
+    private var cpf: String? = null
+    private var phone: String? = null
+    private var email: String? = null
+    private var birthDate: LocalDate? = null
+    private var password: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +44,85 @@ class CreateAccountActivity : BaseActivity() {
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
         addFragment(R.id.frameCreateAccount, AccountCreateStageOneFragment())
+
+        btn_register_create_account.setOnClickListener {
+
+            if (formIsValid()) {
+                val country = Country()
+                country.id = 36
+                country.name = "Brasil"
+
+
+                var anesthetist = Anesthetist()
+
+                anesthetist.name = this!!.nameString!!
+                anesthetist.cpf = this!!.cpf!!
+                anesthetist.phone = this!!.phone!!
+                anesthetist.country = country
+                anesthetist.email = this!!.email!!
+              // anesthetist.birthDate = edt_register_date_of_birth.text.toString() as Date
+
+                //Toast.makeText(context, anesthetist.name, Toast.LENGTH_LONG).show()
+
+                var user = User()
+                user.password = this!!.password!!
+                user.email = this!!.email!!
+                user.anesthetist = anesthetist
+
+
+                // Fazer a requisição pelo webClient
+
+                //no success abrir a próxima tela
+
+
+            } else toast("Por favor verifique os campos do formulário")
+
+        }
+    }
+
+    private fun formIsValid(): Boolean {
+        valid = true
+
+
+        if (DefaultValidation(edt_register_name).isValid()) {
+            nameString = edt_register_name?.text.toString()
+        } else {
+            valid = false
+        }
+
+        if (DefaultValidation(edt_register_cpf).isValid() || edt_register_cpf.error.isNullOrEmpty()) {
+            cpf = edt_register_cpf?.text.toString()
+        } else {
+            valid = false
+        }
+
+        if (DefaultValidation(edt_register_phone).isValid() || edt_register_phone.error.isNullOrEmpty()) {
+            phone = edt_register_phone.text.toString()
+        } else {
+            valid = false
+        }
+
+        if (ValidEmail(edt_register_email).isValid()) {
+            email = edt_register_email.text.toString()
+        } else {
+            valid = false
+        }
+
+        if (ValidEmail(edt_register_confirm_email).isValidConfirmEmail(edt_register_email)) {
+            val confirmEmail = edt_register_confirm_email.text.toString()
+        } else {
+            valid = false
+        }
+
+        if (DefaultValidation(edt_register_password).isValid()) {
+             password = edt_register_password.text.toString()
+        } else valid = false
+
+        if (DefaultValidation(edt_register_confirm_password).isValid()) {
+            val confirmPassword = edt_register_confirm_password.text.toString()
+        } else valid = false
+
+        return valid
     }
 
 

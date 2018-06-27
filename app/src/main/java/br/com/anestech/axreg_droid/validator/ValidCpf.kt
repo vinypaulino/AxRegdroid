@@ -9,11 +9,10 @@ import br.com.caelum.stella.validation.InvalidStateException
 /**
  * Created by vinicius on 21/06/18.
  */
-public class ValidCpf (campo : EditText?)  {
+public class ValidCpf (private val campo: EditText?)  {
 
-    val campo = campo
-    val CPFFormatter = br.com.caelum.stella.format.CPFFormatter()
-    val defaultValidation = DefaultValidation(campo)
+    private val cpfFormatter = br.com.caelum.stella.format.CPFFormatter()
+    private val defaultValidation = DefaultValidation(campo)
 
     private fun validCalculateCpf(): Boolean {
         return try {
@@ -36,14 +35,14 @@ public class ValidCpf (campo : EditText?)  {
 
     fun isValid() : Boolean {
         if (!defaultValidation.isValid()) return false
-        if (!validFieldCpfDigits()) return false
+      //  if (!validFieldCpfDigits()) return false
         if (!validCalculateCpf()) return false
         addFormat()
         return true
     }
 
     private fun addFormat() {
-        val cpfFormatado: String = CPFFormatter.format(campo?.text.toString())
+        val cpfFormatado: String = cpfFormatter.format(campo?.text.toString())
         campo?.setText(cpfFormatado)
     }
 

@@ -3,8 +3,6 @@ package br.com.anestech.axcalc.models
 import br.com.anestech.axreg_droid.models.Anesthetist
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
-import io.realm.annotations.RealmClass
-import io.realm.annotations.RealmField
 import java.util.*
 
 open class User  (

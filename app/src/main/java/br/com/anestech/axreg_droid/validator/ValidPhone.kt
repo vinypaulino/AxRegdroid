@@ -24,7 +24,7 @@ public class ValidPhone(fieldPhone: EditText) {
 
     fun isValid(): Boolean {
         if (!defaultValidation.isValid()) return false
-        if (!validNumberPhone(fieldPhone.text.toString())) return false
+        //if (!validNumberPhone(fieldPhone.text.toString())) return false
 
         formatter.addFormat(fieldPhone)
 

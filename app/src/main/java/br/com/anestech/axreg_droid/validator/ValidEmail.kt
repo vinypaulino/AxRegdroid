@@ -13,8 +13,6 @@ class ValidEmail(fildEmail: EditText) {
             fieldEmail.error = "Email inválido"
             return false
         }
-
-
         return true
     }
 
