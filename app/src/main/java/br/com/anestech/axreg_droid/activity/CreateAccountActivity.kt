@@ -5,23 +5,25 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.view.*
-import android.widget.Toast
 import br.com.anestech.axcalc.models.User
 import br.com.anestech.axreg_droid.R
 import br.com.anestech.axreg_droid.extensions.addFragment
 import br.com.anestech.axreg_droid.extensions.toast
-import br.com.anestech.axreg_droid.fragments.AccountCreateStageOneFragment
+import br.com.anestech.axreg_droid.fragments.register.AccountCreateStageOneFragment
 import br.com.anestech.axreg_droid.models.Anesthetist
 import br.com.anestech.axreg_droid.models.Country
+import br.com.anestech.axreg_droid.models.State
+import br.com.anestech.axreg_droid.retrofit.response.CallbackResponse
+import br.com.anestech.axreg_droid.retrofit.webclient.LoginWebClient
 import br.com.anestech.axreg_droid.validator.DefaultValidation
 import br.com.anestech.axreg_droid.validator.ValidEmail
+import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_create_account.*
 import kotlinx.android.synthetic.main.fragment_account_create_stage_one.*
 import kotlinx.android.synthetic.main.fragment_create_account.view.*
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.startActivity
+import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.LocalDate.parse
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class CreateAccountActivity : BaseActivity() {
@@ -48,26 +50,26 @@ class CreateAccountActivity : BaseActivity() {
         btn_register_create_account.setOnClickListener {
 
             if (formIsValid()) {
-                val country = Country()
-                country.id = 36
-                country.name = "Brasil"
+                var user = loadUser()
+
+                LoginWebClient().register(user, object : CallbackResponse<User> {
+                    override fun success(response: User) {
+                        insertUserRealm(response)
+                        startActivity<MainActivity>()
+                    }
+
+                    override fun failure(throwable: Throwable) {
+                        toast("Erro ao comunicar-se com o servidor! \n Verifique sua conexao com a Internet")
+                    }
+
+                    override fun responseFailure() {
+                        toast("Erro ao Cadastrar usuário")
+                        startActivity<MainActivity>()
+                    }
+
+                })
 
 
-                var anesthetist = Anesthetist()
-
-                anesthetist.name = this!!.nameString!!
-                anesthetist.cpf = this!!.cpf!!
-                anesthetist.phone = this!!.phone!!
-                anesthetist.country = country
-                anesthetist.email = this!!.email!!
-              // anesthetist.birthDate = edt_register_date_of_birth.text.toString() as Date
-
-                //Toast.makeText(context, anesthetist.name, Toast.LENGTH_LONG).show()
-
-                var user = User()
-                user.password = this!!.password!!
-                user.email = this!!.email!!
-                user.anesthetist = anesthetist
 
 
                 // Fazer a requisição pelo webClient
@@ -80,9 +82,47 @@ class CreateAccountActivity : BaseActivity() {
         }
     }
 
+    private fun loadUser(): User {
+        val country = Country()
+        country.id = 36
+        country.name = "Brasil"
+
+        val state = State()
+        state.id = 1
+        state.name = "Estado Padrao"
+        state.acronym = "EP"
+
+
+        var anesthetist = Anesthetist()
+
+        anesthetist.name = this.nameString!!
+        anesthetist.cpf = this.cpf!!
+        anesthetist.phone = this.phone!!
+        anesthetist.country = country
+        anesthetist.email = this.email!!
+        anesthetist.crm_number = "1234"
+        val dataFormatada = configDateBirth()
+        anesthetist.birthDate = dataFormatada
+        anesthetist.state = state
+
+
+        var user = User()
+        user.password = this.password!!
+        user.email = this.email!!
+        user.anaesthetist = anesthetist
+        return user
+    }
+
+    private fun insertUserRealm(response: User) {
+        val realm = Realm.getDefaultInstance()
+        realm.executeTransaction {
+            realm.insertOrUpdate(response)
+        }
+        realm.close()
+    }
+
     private fun formIsValid(): Boolean {
         valid = true
-
 
         if (DefaultValidation(edt_register_name).isValid()) {
             nameString = edt_register_name?.text.toString()
@@ -108,9 +148,7 @@ class CreateAccountActivity : BaseActivity() {
             valid = false
         }
 
-        if (ValidEmail(edt_register_confirm_email).isValidConfirmEmail(edt_register_email)) {
-            val confirmEmail = edt_register_confirm_email.text.toString()
-        } else {
+        if (!ValidEmail(edt_register_confirm_email).isValidConfirmEmail(edt_register_email)) {
             valid = false
         }
 
@@ -118,11 +156,17 @@ class CreateAccountActivity : BaseActivity() {
              password = edt_register_password.text.toString()
         } else valid = false
 
-        if (DefaultValidation(edt_register_confirm_password).isValid()) {
-            val confirmPassword = edt_register_confirm_password.text.toString()
-        } else valid = false
+        if (!DefaultValidation(edt_register_confirm_password).isValid()) {
+            valid = false
+        }
 
         return valid
+    }
+
+    private fun configDateBirth(): Date? {
+        val dataRecebida = edt_register_date_of_birth.text.toString()
+        val formato = SimpleDateFormat("dd/MM/yyyy")
+        return formato.parse(dataRecebida)
     }
 
 
@@ -146,10 +190,6 @@ class CreateAccountActivity : BaseActivity() {
     }
 
 
-    /**
-     * A [FragmentPagerAdapter] that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {

@@ -13,7 +13,7 @@ open class User  (
         var email: String = "",
         var password: String = "",
         var passwordDate: Date = Date(),
-        var anesthetist: Anesthetist? = null,
+        var anaesthetist: Anesthetist? = null,
 
         var token: String = "",
         var updatedAt: Date = Date(),

@@ -43,4 +43,5 @@
     <string name="error_field_required">Campo obrigatório</string>
     <string name="error_invalid_cpf">Cpf inválido</string>
     <string name="error_digits_cpf">O cpf precisa ter 11 digitos</string>
+    <string name="txt_professional_data">Dados profissionais</string>
 </resources>

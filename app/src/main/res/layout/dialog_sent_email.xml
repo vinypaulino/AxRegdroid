@@ -9,7 +9,7 @@
     app:cardCornerRadius="13dp"
     app:cardElevation="5dp"
     tools:background="@color/cardview_light_background"
-    tools:context=".fragments.SentEmailDialog">
+    tools:context=".fragments.login.SentEmailDialog">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

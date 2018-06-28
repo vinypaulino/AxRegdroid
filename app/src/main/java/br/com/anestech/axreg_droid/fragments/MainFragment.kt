@@ -31,8 +31,8 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_main, container, false)
         val user = DbHelper.findUser()
-        view.textView.text = "${user!!.token}"
-
+        view.textView.text = "${user?.token}" +
+                "email ${user?.email}"
         return view
     }
 

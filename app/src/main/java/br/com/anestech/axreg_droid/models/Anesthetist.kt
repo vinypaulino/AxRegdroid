@@ -19,10 +19,11 @@ open class Anesthetist(
         var originType: String = "",
         var createUserId: Int = 0,
         var uploadUserId: Int = 0,
+
         var name: String = "",
         var cpf: String = "",
         var email: String = "",
-        var crm: String = "",
+        var crm_number: String = "",
         var phone: String = "",
         var crmState: State? = null,
         var state: State? = null,

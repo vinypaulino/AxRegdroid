@@ -1,4 +1,4 @@
-package br.com.anestech.axreg_droid.fragments
+package br.com.anestech.axreg_droid.fragments.login
 
 import android.content.Context
 import android.support.v7.app.AlertDialog

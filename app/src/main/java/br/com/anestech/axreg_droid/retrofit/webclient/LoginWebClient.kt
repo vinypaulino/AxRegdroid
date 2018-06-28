@@ -34,6 +34,27 @@ class LoginWebClient {
         })
     }
 
+    fun register(user: User, callbackResponse: CallbackResponse<User>){
+        val call = RetrofitInicializer().loginService().register(user)
+        call.enqueue(object : retrofit2.Callback<User>{
+            override fun onFailure(call: Call<User>?, t: Throwable?) {
+                t?.message?.let {
+                    callbackResponse.failure(t!!)
+                    Log.e("onFailure error", t?.message)
+                }
+            }
+
+            override fun onResponse(call: Call<User>?, response: Response<User>?) {
+                if (response?.isSuccessful!!){
+                    val userResponse: User = response.body()!!
+                    callbackResponse.success(userResponse)
+                } else if (response?.code() == 401){
+                    callbackResponse.responseFailure()
+                }
+            }
+        })
+    }
+
     fun passwordReset(email: String, callbackResponse: CallbackResponse<String>){
 
         val call = RetrofitInicializer().loginService().passwordReset(email)

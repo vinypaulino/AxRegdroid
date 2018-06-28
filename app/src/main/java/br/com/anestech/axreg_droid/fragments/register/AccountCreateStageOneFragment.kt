@@ -1,4 +1,4 @@
-package br.com.anestech.axreg_droid.fragments
+package br.com.anestech.axreg_droid.fragments.register
 
 
 import android.app.DatePickerDialog
@@ -12,13 +12,12 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import br.com.anestech.axreg_droid.R
 import br.com.anestech.axreg_droid.formatter.FormatterPhoneWhithDDD
+import br.com.anestech.axreg_droid.fragments.BaseFragment
 import br.com.anestech.axreg_droid.validator.DefaultValidation
 import br.com.anestech.axreg_droid.validator.ValidCpf
 import br.com.anestech.axreg_droid.validator.ValidEmail
 import br.com.anestech.axreg_droid.validator.ValidPhone
 import br.com.caelum.stella.format.CPFFormatter
-import br.com.caelum.stella.validation.CPFValidator
-import br.com.caelum.stella.validation.InvalidStateException
 import br.com.vinipaulino.mobile.financask.extension.formataParaBrasileiro
 import kotlinx.android.synthetic.main.fragment_account_create_stage_one.*
 import kotlinx.android.synthetic.main.fragment_account_create_stage_one.view.*
@@ -56,7 +55,6 @@ class AccountCreateStageOneFragment : BaseFragment() {
 
         configFieldPhone()
 
-
         addValidationDefault(edt_register_date_of_birth)
 
         configFildEmail()
@@ -74,7 +72,6 @@ class AccountCreateStageOneFragment : BaseFragment() {
             if(!hasFocus) {
                 validator.isValidConfirmEmail(edt_register_email)
             }
-
         }
     }
 
@@ -90,7 +87,7 @@ class AccountCreateStageOneFragment : BaseFragment() {
     private fun configFieldPhone() {
         val formatterPhoneWhithDDD = FormatterPhoneWhithDDD()
         val validator = ValidPhone(edt_register_phone)
-        edt_register_phone.setOnFocusChangeListener { v, hasFocus ->
+        edt_register_phone.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 validator.isValid()
             } else {
@@ -109,7 +106,7 @@ class AccountCreateStageOneFragment : BaseFragment() {
     private fun configFieldCpf() {
         val validator = ValidCpf(edt_register_cpf)
         val cpfFormatter = CPFFormatter()
-        edt_register_cpf.setOnFocusChangeListener { v, hasFocus ->
+        edt_register_cpf.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 addFormatting(cpfFormatter)
             } else {
@@ -130,7 +127,7 @@ class AccountCreateStageOneFragment : BaseFragment() {
 
     private fun addValidationDefault(campo: EditText) {
         val validator = DefaultValidation(campo)
-        campo.setOnFocusChangeListener { v, hasFocus ->
+        campo.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 validator.isValid()
             }
@@ -151,7 +148,7 @@ class AccountCreateStageOneFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        edt_register_date_of_birth?.setOnFocusChangeListener { v, hasFocus ->
+        edt_register_date_of_birth?.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 openDataPickerDialog()
             }
