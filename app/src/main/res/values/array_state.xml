@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_state">
+        <item>Santa Catarina </item>
+        <item>São Paulo</item>
+        <item>Rio de Janeiro</item>
+        <item>Manaus</item>
+    </string-array>
+</resources>
