@@ -44,4 +44,6 @@
     <string name="error_invalid_cpf">Cpf inválido</string>
     <string name="error_digits_cpf">O cpf precisa ter 11 digitos</string>
     <string name="txt_professional_data">Dados profissionais</string>
+    <string name="txt_register_your_subscription">Cadastre sua assinatura ou Rúbrica para impressão</string>
+    <string name="crm">Nº CRM</string>
 </resources>

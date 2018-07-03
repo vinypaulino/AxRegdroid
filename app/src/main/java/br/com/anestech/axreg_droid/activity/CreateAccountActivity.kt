@@ -10,6 +10,7 @@ import br.com.anestech.axreg_droid.R
 import br.com.anestech.axreg_droid.extensions.addFragment
 import br.com.anestech.axreg_droid.extensions.toast
 import br.com.anestech.axreg_droid.fragments.register.AccountCreateStageOneFragment
+import br.com.anestech.axreg_droid.fragments.register.AccountCreateStageTwoFragment
 import br.com.anestech.axreg_droid.models.Anesthetist
 import br.com.anestech.axreg_droid.models.Country
 import br.com.anestech.axreg_droid.models.State
@@ -45,7 +46,7 @@ class CreateAccountActivity : BaseActivity() {
 
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
-        addFragment(R.id.frameCreateAccount, AccountCreateStageOneFragment())
+        addFragment(R.id.frameCreateAccount, AccountCreateStageTwoFragment())
 
         btn_register_create_account.setOnClickListener {
 
@@ -68,9 +69,6 @@ class CreateAccountActivity : BaseActivity() {
                     }
 
                 })
-
-
-
 
                 // Fazer a requisição pelo webClient
 
