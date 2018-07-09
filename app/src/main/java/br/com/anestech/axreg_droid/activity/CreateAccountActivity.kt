@@ -10,6 +10,7 @@ import br.com.anestech.axreg_droid.R
 import br.com.anestech.axreg_droid.extensions.addFragment
 import br.com.anestech.axreg_droid.extensions.toast
 import br.com.anestech.axreg_droid.fragments.register.AccountCreateStageOneFragment
+import br.com.anestech.axreg_droid.fragments.register.AccountCreateStageThreeFragment
 import br.com.anestech.axreg_droid.fragments.register.AccountCreateStageTwoFragment
 import br.com.anestech.axreg_droid.models.Anesthetist
 import br.com.anestech.axreg_droid.models.Country
@@ -39,7 +40,6 @@ class CreateAccountActivity : BaseActivity() {
     private var birthDate: LocalDate? = null
     private var password: String? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
@@ -67,14 +67,9 @@ class CreateAccountActivity : BaseActivity() {
                         toast("Erro ao Cadastrar usuário")
                         startActivity<MainActivity>()
                     }
-
                 })
-
                 // Fazer a requisição pelo webClient
-
                 //no success abrir a próxima tela
-
-
             } else toast("Por favor verifique os campos do formulário")
 
         }
@@ -187,9 +182,7 @@ class CreateAccountActivity : BaseActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-
         override fun getItem(position: Int): Fragment {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).

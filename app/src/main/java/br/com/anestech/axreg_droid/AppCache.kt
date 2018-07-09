@@ -36,7 +36,7 @@ class AppCache : Application() {
     }
 
     companion object {
-        private var appInstance: AppCache? = null
+        var appInstance: AppCache? = null
         fun getInstance(): AppCache {
             if (appInstance == null){
                 throw IllegalStateException("Configure a classe Application no AndroidManifest.xml")

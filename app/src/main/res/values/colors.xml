@@ -6,4 +6,5 @@
     <color name="darkGreyBlue">#394463</color>
     <color name="fundo_edit">#e0e6ea</color>
     <color name="transparent">#0000ffff</color>
+    <color name="border_view">#939ba1</color>
 </resources>

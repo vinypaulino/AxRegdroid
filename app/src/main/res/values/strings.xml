@@ -46,4 +46,6 @@
     <string name="txt_professional_data">Dados profissionais</string>
     <string name="txt_register_your_subscription">Cadastre sua assinatura ou Rúbrica para impressão</string>
     <string name="crm">Nº CRM</string>
+    <string name="txt_institutions_that">Instituições em que atuo</string>
+    <string name="txt_selected">Selecionada</string>
 </resources>
