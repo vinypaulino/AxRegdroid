@@ -97,9 +97,7 @@ class AccountCreateStageOneFragment : BaseFragment() {
                 } catch (e: Exception) {
                     Log.e("Erro ao formatar", "Erro ao desformatar o telefone")
                 }
-
             }
-
         }
     }
 
@@ -124,7 +122,6 @@ class AccountCreateStageOneFragment : BaseFragment() {
         }
     }
 
-
     private fun addValidationDefault(campo: EditText) {
         val validator = DefaultValidation(campo)
         campo.setOnFocusChangeListener { _, hasFocus ->
@@ -133,7 +130,6 @@ class AccountCreateStageOneFragment : BaseFragment() {
             }
         }
     }
-
 
     private fun createAdapterForSpinner(): ArrayAdapter<CharSequence>? {
         return ArrayAdapter.createFromResource(context,

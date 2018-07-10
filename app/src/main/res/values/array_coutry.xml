@@ -2,6 +2,7 @@
 <resources>
         <string-array name="list_country">
             <item>Brasil</item>
+
             <item>Estados Unidos</item>
             <item>Itália</item>
             <item>México</item>

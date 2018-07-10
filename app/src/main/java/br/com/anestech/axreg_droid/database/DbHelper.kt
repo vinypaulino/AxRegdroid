@@ -6,7 +6,10 @@ import io.realm.Realm
 import io.realm.RealmObject
 
 class DbHelper {
+
+
     companion object {
+
         fun save(obj:RealmObject){
             val realm = Realm.getDefaultInstance()
             realm.beginTransaction()
@@ -28,5 +31,6 @@ class DbHelper {
             realm.close()
             return result
         }
+
     }
 }

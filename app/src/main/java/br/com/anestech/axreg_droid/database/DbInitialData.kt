@@ -1,5 +1,6 @@
 package br.com.anestech.axcalc.database
 
+import br.com.anestech.axreg_droid.models.State
 import io.realm.Realm
 
 /**
@@ -14,7 +15,18 @@ class DbInitialData : Realm.Transaction {
     }
 
     private fun dadosIniciais(realm: Realm) {
-        //Funcao para adicionar dados iniciais ao projeto
+        var id_state : Long = 0
+
+        /** Criando os estados no banco de dados **/
+        val state1 = realm.createObject(State::class.java, id_state++)
+        state1.name = "Acre"
+        state1.acronym = "AC"
+
+
+        val state2 = realm.createObject(State::class.java, id_state++)
+        state2.name = "Sao Paulo"
+        state2.acronym = "SP"
+
     }
 
 

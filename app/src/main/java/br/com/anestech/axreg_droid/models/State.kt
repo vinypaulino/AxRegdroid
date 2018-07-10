@@ -12,4 +12,8 @@ open class State(
         var name: String = "",
         var acronym: String = ""
 
-        ) : RealmObject()
+        ) : RealmObject() {
+        override fun toString(): String {
+          return acronym
+        }
+}
