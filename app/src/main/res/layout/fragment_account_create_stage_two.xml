@@ -32,7 +32,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_professional_data">
+        app:layout_constraintTop_toBottomOf="@+id/title_professional_data"
+        android:layout_marginLeft="34dp">
 
         <EditText
             android:id="@+id/edt_register_crm"
@@ -57,7 +58,8 @@
         app:layout_constraintEnd_toStartOf="@+id/btnAdd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/crmWrapper"
-        app:layout_constraintTop_toTopOf="@+id/crmWrapper" />
+        app:layout_constraintTop_toTopOf="@+id/crmWrapper"
+        android:layout_marginLeft="36dp" />
 
     <ImageButton
         android:id="@+id/btnAdd"
@@ -72,7 +74,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="@+id/spinner" />
+        app:layout_constraintTop_toTopOf="@+id/spinner"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="32dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lista_cmr_recyclerview"
